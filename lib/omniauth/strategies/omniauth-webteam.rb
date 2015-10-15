@@ -5,7 +5,7 @@ module OmniAuth
     class Webteam < OmniAuth::Strategies::OAuth2
       DEFAULT_SCOPE = 'user'
       # Give your strategy a name.
-      option :name, "webteam_ensea"
+      option :name, "webteam"
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
@@ -39,14 +39,14 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/user').parsed
+        @raw_info ||= access_token.get('user').parsed
       end
 
         def request_phase
         options[:authorize_params] = {
           :client_id     => options['client_id'],
           :response_type => 'code',
-          :scopes        => (options['scope'] || DEFAULT_SCOPE)
+          :scope        => (options['scope'] || DEFAULT_SCOPE)
         }
 
         super
