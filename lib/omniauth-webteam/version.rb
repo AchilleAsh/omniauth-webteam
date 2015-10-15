@@ -1,5 +1,5 @@
 module OmniAuth
   module Webteam
-    VERSION = "1.1.2"
+    VERSION = "1.0.0"
   end
 end
